@@ -1,0 +1,82 @@
+<html>
+<head>
+    <title>我的个人网站</title>
+    <style>
+        /* 这里是 CSS 代码，用来设置网页的样式和布局 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+        }
+        p {
+            font-size: 18px;
+            margin: 20px;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+        button {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px 20px;
+            font-size: 20px;
+            color: white;
+            background-color: green;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <!-- 这里是 HTML 代码，用来定义网页的结构和内容 -->
+    <h1>欢迎来到我的个人网站</h1>
+    <img src="https://i.imgur.com/4Qb7aSe.png" alt="我的头像">
+    <p>你好，我是一个热爱编程的人，这是我用代码写的一个个人网站，我想在这里分享一些关于我自己的信息和作品。</p>
+    <p>我喜欢学习和使用不同的编程语言和技术，比如 Python，Java，C++，HTML，CSS，JavaScript 等，我觉得它们都很有趣和有用。</p>
+    <p>我也喜欢制作一些有趣和有创意的项目，比如游戏，应用，网站，机器人等，我觉得它们都可以展示我的想法和能力。</p>
+    <p>如果你想了解更多关于我或者我的项目的信息，你可以点击下面的按钮，我会给你展示一些我最自豪的作品。</p>
+    <button id="show">点击这里</button>
+    <script>
+        // 这里是 JavaScript 代码，用来实现网页的交互和动态效果
+        // 获取按钮元素
+        var button = document.getElementById("show");
+        // 定义一个数组，存储我的作品的名称和链接
+        var projects = [
+            ["贪吃蛇游戏", "https://codepen.io/pen/?template=LYZjyjR"],
+            ["计算器应用", "https://codepen.io/pen/?template=abpLzLd"],
+            ["天气网站", "https://codepen.io/pen/?template=xxgjyjw"],
+            ["聊天机器人", "https://codepen.io/pen/?template=xxgjyjw"]
+        ];
+        // 定义一个变量，用来记录当前展示的作品的索引
+        var index = 0;
+        // 定义一个函数，用来展示我的作品
+        function showProject() {
+            // 获取当前展示的作品的名称和链接
+            var name = projects[index][0];
+            var link = projects[index][1];
+            // 弹出一个对话框，显示我的作品的名称和链接，并询问用户是否想要打开它
+            var answer = confirm("这是我制作的一个" + name + "，你可以点击这个链接来查看它：" + link + "。你想要打开它吗？");
+            // 如果用户点击了确定，就在新的标签页中打开我的作品的链接
+            if (answer) {
+                window.open(link, "_blank");
+            }
+            // 更新当前展示的作品的索引，如果超过了数组的长度，就从头开始
+            index = (index + 1) % projects.length;
+        }
+        // 给按钮元素添加一个点击事件的监听器，当用户点击按钮时，调用展示我的作品的函数
+        button.addEventListener("click", showProject);
+    </script>
+</body>
+</html>
